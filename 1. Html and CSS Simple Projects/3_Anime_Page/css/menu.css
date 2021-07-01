@@ -1,0 +1,142 @@
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.toggler {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 60px;
+  height: 60px;
+  z-index: 3;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.anime {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 60px;
+  height: 60px;
+  z-index:2;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #111;
+}
+
+.anime > div {
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: #fff44f;
+  transition: .4s;
+}
+
+.anime > div:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: #fff44f;
+  top: -10px;
+  left: 0;
+  transition: 0.4s;
+}
+
+.anime > div:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: #fff44f;
+  top: 10px;
+  left: 0;
+  transition: .4s;
+}
+
+.toggler:checked + .anime > div {
+  transform: rotate(135deg);
+}
+
+.toggler:checked:hover + .anime > div {
+  transform: rotate(225deg);
+}
+
+.toggler:checked + .anime > div:before,
+.toggler:checked + .anime > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: 0.6s;
+}
+
+.menu > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-150%) translateY(-50%);
+  width: 1600px;
+  height: 1600px;
+  border-radius: 50%;
+  background-color: #03203c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 0.6s;
+}
+
+.menu > div > div {
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.menu > div > div > ul > li {
+  list-style: none;
+}
+
+.menu > div > div > ul > li > a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 550;
+  text-transform: uppercase;
+  margin: 0.5rem;
+  transition: 0.3s;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.menu > div > div > ul > li > a:hover {
+  color: #fff44f;
+}
+
+.toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.toggler:checked ~ .menu > div {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.toggler:checked ~ menu > div > div {
+  opacity: 1;
+}
